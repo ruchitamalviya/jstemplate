@@ -2,10 +2,10 @@
 	function addbox() {
 		var addbox = document.createElement("DIV");
 		addbox.className = 'item';
-		addbox.onclick=fillcolor;
+		addbox.addEventListener=fillcolor;
 		document.body.appendChild(addbox);
 	}
-	
+
 	var color = ["#fc032c", "#3168de", "#46de28"];
 	var length = color.length;
 	var i = 0;
@@ -19,7 +19,7 @@
 		document.getElementById('item1').style.background = color[i];
 		document.getElementById('item2').style.background = color[i];
 		document.getElementById('item3').style.background = color[i];
-		getElementsByClassName('item').style.background = color[i];//error
+		document.getElementsByClassName('item').style.background = color[i];//error
 	}
 
 
