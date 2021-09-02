@@ -1,8 +1,12 @@
-	
-	function addbox() {
+function addbox() {
+
+		var color = ["#fc032c", "#3168de", "#46de28"];
+		const random = Math.floor(Math.random() * color.length);
+        
 		var addbox = document.createElement("DIV");
-		addbox.className = 'item';
-		addbox.addEventListener=fillcolor;
+        addbox.className='item';
+		addbox.setAttribute("color",color[random]);
+        addbox.onclick=fillcolor;
 		document.body.appendChild(addbox);
 	}
 
@@ -12,39 +16,9 @@
 	document.getElementById("item1").addEventListener('click', fillcolor);
 	document.getElementById("item2").addEventListener('click', fillcolor);
 	document.getElementById("item3").addEventListener('click', fillcolor);
-	document.getElementsByClassName("item").addEventListener('click', fillcolor);
-
+	
 	function fillcolor() {
-		i = (i < length - 1) ? ++i : 0;
-		document.getElementById('item1').style.background = color[i];
-		document.getElementById('item2').style.background = color[i];
-		document.getElementById('item3').style.background = color[i];
-		document.getElementsByClassName('item').style.background = color[i];//error
-	}
-
-
-	
-
-
-
-
-
-
-
-
-
-	
-	
-
-
-	
-
-	
-
-
-	
-
-
-	
-
-	
+		
+        this.style.background = this.getAttribute('color')
+		
+    }
