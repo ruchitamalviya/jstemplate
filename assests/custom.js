@@ -1,24 +1,31 @@
-function addbox() {
-
-		var color = ["#fc032c", "#3168de", "#46de28"];
-		const random = Math.floor(Math.random() * color.length);
-        
-		var addbox = document.createElement("DIV");
-        addbox.className='item';
-		addbox.setAttribute("color",color[random]);
-        addbox.onclick=fillcolor;
-		document.body.appendChild(addbox);
+function addBox()
+{
+	
+	 var addbox = document.createElement("DIV");
+	addbox.className='item';
+	document.getElementById('parent').appendChild(addbox);
+	
 	}
 
-	var color = ["#fc032c", "#3168de", "#46de28"];
-	var length = color.length;
-	var i = 0;
-	document.getElementById("item1").addEventListener('click', fillcolor);
-	document.getElementById("item2").addEventListener('click', fillcolor);
-	document.getElementById("item3").addEventListener('click', fillcolor);
-	
-	function fillcolor() {
+(function() {
+let count=0;
+
+
+	document.addEventListener('click',function(e){
+		element = document.getElementsByClassName("item");
 		
-        this.style.background = this.getAttribute('color')
-		
-    }
+		let color = ["#fc032c", "#3168de", "#46de28"];
+		for ( let i = 0; i < element.length; i++ ) {
+			var divElm = element[i];
+			 divElm.onclick = function() {
+			 	let count1 = count % 3;
+			 	console.log(color[0]);
+				this.style.background = color[count1];
+				count++;
+		    }
+		}
+	});
+
+
+})();
+
